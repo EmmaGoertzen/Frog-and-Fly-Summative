@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 
 public class Food extends Actor
@@ -26,6 +26,12 @@ public class Food extends Actor
             setImage("bananas.png");
         } else if( foodType == 2 ) {
             setImage("cherries.png");
+        }
+        else if( foodType == 3) {
+            setImage("grapes.png");
+        }
+        else if( foodType == 4) {
+            setImage("strawberry.png");               
         }
     }   
 }

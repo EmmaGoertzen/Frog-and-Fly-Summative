@@ -15,24 +15,37 @@ public class Fly extends Creature
          * modify this code to make the turtle face any random 
          * initial direction
          */
-        setRotation( 90 );
+        setRotation( Greenfoot.getRandomNumber( 360) );
     }
     
     public void act() 
     {
         // make the fly move 4 steps in the direction it is facing
-        
+        if( Greenfoot.isKeyDown(" up ")==true)
+        {
+            move(4);
+        }
         /*
          * Make the fly turn left or right 5 degrees when
          * the left or right arrow key is pressed. 
          */
+        if( Greenfoot.isKeyDown(" right ")==true)
+        {
+            turn(5);
+        }
         
+        if( Greenfoot.isKeyDown(" left ")==true)
+        {
+            turn(-5);
+        }
         
         /*
          * If the fly touches a Food object, remove the Food object
          * from the world. 
          */
-        
-        
+        if( isTouching(Food.class)==true)
+        {
+            removeTouching(Food.class);
+        }
     }    
 }

@@ -11,7 +11,7 @@ public class Frog extends Creature
     public Frog()
     {        
         // set the Frog's speed to a random number between 4 and 8
-       
+        walk(Greenfoot.getRandomNumber(4)+4);
     }
     
     public void act() 
@@ -21,7 +21,7 @@ public class Frog extends Creature
         /*
          * Make the frog turn off course 35% of the time.
          * It will turn left or right 15 degrees equally as often. 
-         */ 
+         */
         
         /*
          * If the frog is near an edge of the world, make it turn
@@ -29,13 +29,45 @@ public class Frog extends Creature
          * 
          * Hint: use the atEdgeOfWorld method in the Creature class.
          */
-        
-        
+        checkAtEdge();
         /*
          * If the frog encounters the fly, the game ends, so
          * stop the scenario 
          */ 
         
         
-    }    
+    }  
+     private void walk( int distance )
+    {
+     move(distance); 
+    }
+     private void checkAtEdge()
+    {
+       if( isAtEdge() == true)
+       {
+           turn(7);
+       }
+    }
+    private void turnn()
+    {
+       if ( Greenfoot.getRandomNumber(100) < 35)
+       {
+          if ( Greenfoot.getRandomNumber(2) < 1)
+          {
+              turn(-15);
+          }
+          else
+          {
+              turn(15);
+          }
+       }
+    }
+    private void hitFly()
+    {
+        if( isTouching(Fly.class)==true)
+        {
+            removeTouching(Fly.class);
+            Greenfoot.stop();
+        }
+    }
 }
